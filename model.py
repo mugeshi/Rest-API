@@ -4,15 +4,14 @@ from sqlalchemy.orm import validates
 # Initialize the SQLAlchemy object
 db = SQLAlchemy()
 
-class User(db.Model):
+class UserModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
 
     def __repr__(self):
-        return f'User(name = {self.username}, email ={self.email})'
+        return f'User(name = {self.username}, email = {self.email})'
 
-    # Custom validation methods
     @validates('username')
     def validate_username(self, key, username):
         if not username or len(username) < 3:
