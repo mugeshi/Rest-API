@@ -1,7 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import validates
 
-# Initialize the SQLAlchemy object
+
 db = SQLAlchemy()
 
 class UserModel(db.Model):
